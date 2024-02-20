@@ -18,7 +18,7 @@ export const HomeApp = () => {
                 setquestion(JSON.parse(res.data));
             })
             .catch(error => {
-            //    getQuestion();
+               getQuestion();
                 console.log(error);
             })
     }
