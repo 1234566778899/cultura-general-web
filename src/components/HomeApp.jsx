@@ -13,7 +13,7 @@ export const HomeApp = () => {
     }, [])
     const getQuestion = () => {
         setquestion(null);
-        axios.get('http://localhost:4000/api/generate')
+        axios.get('cultura-general.azurewebsites.net/api/generate')
             .then(res => {
                 setquestion(JSON.parse(res.data));
             })
