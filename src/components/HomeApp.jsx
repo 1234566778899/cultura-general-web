@@ -13,12 +13,12 @@ export const HomeApp = () => {
     }, [])
     const getQuestion = () => {
         setquestion(null);
-        axios.get('cultura-general.azurewebsites.net/api/generate')
+        axios.get('https://cultura-general.azurewebsites.net/api/generate')
             .then(res => {
                 setquestion(JSON.parse(res.data));
             })
             .catch(error => {
-                getQuestion();
+            //    getQuestion();
                 console.log(error);
             })
     }
