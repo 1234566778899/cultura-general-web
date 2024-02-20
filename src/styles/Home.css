@@ -1,0 +1,104 @@
+.content {
+    background-color: #006FFF;
+    height: 100vh;
+}
+
+.question {
+    display: flex;
+    padding: 20px;
+}
+
+.question h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 0 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+}
+
+.body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.body img {
+    height: 500px;
+}
+
+.altern {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    box-shadow: 02px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: #FFFFFF;
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 15px;
+    position: relative;
+    padding: 10px 0px;
+}
+
+.altern .letter {
+    position: absolute;
+    background-color: #FF0947;
+    width: 86px;
+    color: white;
+    height: 85px;
+    font-size: 40px;
+    border-radius: 50%;
+    transform: translate(-40px, -18px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid white;
+}
+
+.altern .answer {
+    font-size: 35px;
+    margin-left: 55px;
+    text-transform: uppercase;
+}
+
+.carga {
+    height: 50px;
+    background-color: #B8BDC5;
+    margin-right: 40px;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 5px solid white;
+}
+
+.carga div {
+    background-color: #22BB55;
+    height: 100%;
+    border-radius: 15px;
+    width: 40%;
+}
+
+.correcto {
+    background-color: green;
+    color: white;
+}
+
+.incorrecto {
+    background-color: red;
+    color: white;
+}
+
+.info {
+    display: flex;
+    width: 100%;
+    font-weight: bolder;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    font-size: 2rem;
+}
