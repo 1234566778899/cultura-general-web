@@ -18,7 +18,7 @@ export const HomeApp = () => {
                 setquestion(JSON.parse(res.data));
             })
             .catch(error => {
-               getQuestion();
+                getQuestion();
                 console.log(error);
             })
     }
@@ -59,7 +59,7 @@ export const HomeApp = () => {
                     </div>
                     <div className='altern'>
                         {
-                            question.alternativas.map((x, index) => (
+                            question.alternativas && question.alternativas.map((x, index) => (
                                 <div className={`item ${estado.index == index && estado.value}`} key={index} onClick={() => responder(index, x)}>
                                     <span className='letter'>{letters[index]}</span>
                                     <span className='answer'>{x}</span>
