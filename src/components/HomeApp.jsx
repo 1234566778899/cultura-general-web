@@ -6,11 +6,13 @@ export const HomeApp = () => {
     const letters = ['A', 'B', 'C', 'D'];
     const [question, setquestion] = useState(null);
     const [estado, setEstado] = useState({});
-    const [puesto, setPuesto] = useState({ index: 1, points: 0 })
+    const [puesto, setPuesto] = useState({ index: 1, points: 0 });
+    const [fin, setfin] = useState(false);
     useEffect(() => {
         getQuestion();
     }, [])
     const getQuestion = () => {
+        setquestion(null);
         axios.get('http://localhost:4000/api/generate')
             .then(res => {
                 setquestion(JSON.parse(res.data));
@@ -29,12 +31,21 @@ export const HomeApp = () => {
             setEstado({ index, value: 'incorrecto' });
         }
 
+
         setTimeout(() => {
-            setquestion(null);
             setPuesto(prev => ({ index: prev.index + 1, points: valido ? prev.points + 1 : prev.points }));
+            if (puesto.index == 10) {
+                return setfin(true);
+            }
             setEstado({});
             getQuestion();
         }, 1000);
+    }
+    const iniciar = () => {
+        setEstado({});
+        setPuesto({ index: 1, points: 0 });
+        getQuestion();
+        setfin(false);
     }
     return question ? (
         <div className='content'>
@@ -62,6 +73,16 @@ export const HomeApp = () => {
                 <span>PUNTOS: {puesto.points}</span>
                 <span>{puesto.index}/10</span>
             </div>
+            {
+                fin && (
+                    <div className='tab'>
+                        <div>
+                            <h3>Conseguiste {puesto.points} puntos</h3>
+                            <button onClick={() => iniciar()}>Iniciar de nuevo</button>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     ) : (
         <div className="content" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
